@@ -482,22 +482,76 @@ trades for a customer and allocating it to them as a single trade.</p>
 <td>Trade Date in <code>YYYYMMDD</code> format</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifierType</code></td>
+<td><code>Instrument Identifier Type</code></td>
 <td><code>22</code></td>
 <td><code>1</code> <code>2</code> <code>4</code> <code>8</code></td>
 <td><code>Integer</code></td>
 <td><code>1</code></td>
-<td><code>R</code></td>
-<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code></td>
+<td><code>CR</code></td>
+<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code> Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifier</code></td>
+<td><code>Instrument Identifier</code></td>
 <td><code>48</code></td>
 <td></td>
 <td><code>String</code></td>
 <td></td>
-<td><code>R</code></td>
-<td>Instrument Identifier based on tag 22</td>
+<td><code>CR</code></td>
+<td>Instrument Identifier based on tag 22 Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
+</tr>
+<tr>
+<td><code>Security Type</code></td>
+<td><code>167</code></td>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+<td><code>CR</code></td>
+<td>Indicates type of security. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Symbol</code></td>
+<td><code>55</code></td>
+<td></td>
+<td><code>String</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Ticker symbol. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Month Year</code></td>
+<td><code>200</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Month and year of the maturity for an Option. Maturity Month Year in format <code>YYYYMM</code>. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Put Or Call</code></td>
+<td><code>201</code></td>
+<td><code>0</code> <code>1</code></td>
+<td><code>Integer</code></td>
+<td><code>1</code></td>
+<td><code>CR</code></td>
+<td>Indicates whether an Option is for a put or a call <code>0 = Put</code> <code>1 = Call</code> Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Strike Price</code></td>
+<td><code>202</code></td>
+<td></td>
+<td><code>Decimal</code></td>
+<td><code>8</code></td>
+<td><code>CR</code></td>
+<td>Strike Price for an Option. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Day</code></td>
+<td><code>205</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>2</code></td>
+<td><code>CR</code></td>
+<td>To be used in conjunction with Maturity Month Year <code>200</code> to specify a particular maturity date for an Option. Required for Options where tags 22 or 48 are not provided.</td>
 </tr>
 <tr>
 <td><code>InstrumentCountry</code></td>
@@ -790,22 +844,76 @@ order for execution to Goldman.</p>
 <td>Trade Date in <code>YYYYMMDD</code> format</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifierType</code></td>
+<td><code>Instrument Identifier Type</code></td>
 <td><code>22</code></td>
 <td><code>1</code> <code>2</code> <code>4</code> <code>8</code></td>
 <td><code>Integer</code></td>
 <td><code>1</code></td>
-<td><code>R</code></td>
-<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code></td>
+<td><code>CR</code></td>
+<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code> Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifier</code></td>
+<td><code>Instrument Identifier</code></td>
 <td><code>48</code></td>
 <td></td>
 <td><code>String</code></td>
 <td></td>
-<td><code>R</code></td>
-<td>Instrument Identifier based on tag 22</td>
+<td><code>CR</code></td>
+<td>Instrument Identifier based on tag 22 Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
+</tr>
+<tr>
+<td><code>Security Type</code></td>
+<td><code>167</code></td>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+<td><code>CR</code></td>
+<td>Indicates type of security. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Symbol</code></td>
+<td><code>55</code></td>
+<td></td>
+<td><code>String</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Ticker symbol. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Month Year</code></td>
+<td><code>200</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Month and year of the maturity for an Option. Maturity Month Year in format <code>YYYYMM</code>. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Put Or Call</code></td>
+<td><code>201</code></td>
+<td><code>0</code> <code>1</code></td>
+<td><code>Integer</code></td>
+<td><code>1</code></td>
+<td><code>CR</code></td>
+<td>Indicates whether an Option is for a put or a call <code>0 = Put</code> <code>1 = Call</code> Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Strike Price</code></td>
+<td><code>202</code></td>
+<td></td>
+<td><code>Decimal</code></td>
+<td><code>8</code></td>
+<td><code>CR</code></td>
+<td>Strike Price for an Option. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Day</code></td>
+<td><code>205</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>2</code></td>
+<td><code>CR</code></td>
+<td>To be used in conjunction with Maturity Month Year <code>200</code> to specify a particular maturity date for an Option. Required for Options where tags 22 or 48 are not provided.</td>
 </tr>
 <tr>
 <td><code>InstrumentCountry</code></td>
@@ -1152,22 +1260,76 @@ trading firm ABC.</p>
 <td>Trade Date in <code>YYYYMMDD</code> format</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifierType</code></td>
+<td><code>Instrument Identifier Type</code></td>
 <td><code>22</code></td>
 <td><code>1</code> <code>2</code> <code>4</code> <code>8</code></td>
 <td><code>Integer</code></td>
 <td><code>1</code></td>
-<td><code>R</code></td>
-<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code></td>
+<td><code>CR</code></td>
+<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code> Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifier</code></td>
+<td><code>Instrument Identifier</code></td>
 <td><code>48</code></td>
 <td></td>
 <td><code>String</code></td>
 <td></td>
-<td><code>R</code></td>
-<td>Instrument Identifier based on tag 22</td>
+<td><code>CR</code></td>
+<td>Instrument Identifier based on tag 22 Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
+</tr>
+<tr>
+<td><code>Security Type</code></td>
+<td><code>167</code></td>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+<td><code>CR</code></td>
+<td>Indicates type of security. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Symbol</code></td>
+<td><code>55</code></td>
+<td></td>
+<td><code>String</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Ticker symbol. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Month Year</code></td>
+<td><code>200</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Month and year of the maturity for an Option. Maturity Month Year in format <code>YYYYMM</code>. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Put Or Call</code></td>
+<td><code>201</code></td>
+<td><code>0</code> <code>1</code></td>
+<td><code>Integer</code></td>
+<td><code>1</code></td>
+<td><code>CR</code></td>
+<td>Indicates whether an Option is for a put or a call <code>0 = Put</code> <code>1 = Call</code> Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Strike Price</code></td>
+<td><code>202</code></td>
+<td></td>
+<td><code>Decimal</code></td>
+<td><code>8</code></td>
+<td><code>CR</code></td>
+<td>Strike Price for an Option. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Day</code></td>
+<td><code>205</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>2</code></td>
+<td><code>CR</code></td>
+<td>To be used in conjunction with Maturity Month Year <code>200</code> to specify a particular maturity date for an Option. Required for Options where tags 22 or 48 are not provided.</td>
 </tr>
 <tr>
 <td><code>InstrumentCountry</code></td>
@@ -1522,22 +1684,76 @@ AAPL directly on Nasdaq</p>
 <td>Trade Date in <code>YYYYMMDD</code> format</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifierType</code></td>
+<td><code>Instrument Identifier Type</code></td>
 <td><code>22</code></td>
 <td><code>1</code> <code>2</code> <code>4</code> <code>8</code></td>
 <td><code>Integer</code></td>
 <td><code>1</code></td>
-<td><code>R</code></td>
-<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code></td>
+<td><code>CR</code></td>
+<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code> Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifier</code></td>
+<td><code>Instrument Identifier</code></td>
 <td><code>48</code></td>
 <td></td>
 <td><code>String</code></td>
 <td></td>
-<td><code>R</code></td>
-<td>Instrument Identifier based on tag 22</td>
+<td><code>CR</code></td>
+<td>Instrument Identifier based on tag 22 Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
+</tr>
+<tr>
+<td><code>Security Type</code></td>
+<td><code>167</code></td>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+<td><code>CR</code></td>
+<td>Indicates type of security. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Symbol</code></td>
+<td><code>55</code></td>
+<td></td>
+<td><code>String</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Ticker symbol. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Month Year</code></td>
+<td><code>200</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Month and year of the maturity for an Option. Maturity Month Year in format <code>YYYYMM</code>. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Put Or Call</code></td>
+<td><code>201</code></td>
+<td><code>0</code> <code>1</code></td>
+<td><code>Integer</code></td>
+<td><code>1</code></td>
+<td><code>CR</code></td>
+<td>Indicates whether an Option is for a put or a call <code>0 = Put</code> <code>1 = Call</code> Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Strike Price</code></td>
+<td><code>202</code></td>
+<td></td>
+<td><code>Decimal</code></td>
+<td><code>8</code></td>
+<td><code>CR</code></td>
+<td>Strike Price for an Option. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Day</code></td>
+<td><code>205</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>2</code></td>
+<td><code>CR</code></td>
+<td>To be used in conjunction with Maturity Month Year <code>200</code> to specify a particular maturity date for an Option. Required for Options where tags 22 or 48 are not provided.</td>
 </tr>
 <tr>
 <td><code>InstrumentCountry</code></td>
@@ -1864,22 +2080,76 @@ Checksum10=180
 <td>Trade Date in <code>YYYYMMDD</code> format</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifierType</code></td>
+<td><code>Instrument Identifier Type</code></td>
 <td><code>22</code></td>
 <td><code>1</code> <code>2</code> <code>4</code> <code>8</code></td>
 <td><code>Integer</code></td>
 <td><code>1</code></td>
-<td><code>R</code></td>
-<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code></td>
+<td><code>CR</code></td>
+<td><code>1-CUSIP 2-SEDOL 4-ISIN 8-TICKER</code> Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
 </tr>
 <tr>
-<td><code>InstrumentIdentifier</code></td>
+<td><code>Instrument Identifier</code></td>
 <td><code>48</code></td>
 <td></td>
 <td><code>String</code></td>
 <td></td>
-<td><code>R</code></td>
-<td>Instrument Identifier based on tag 22</td>
+<td><code>CR</code></td>
+<td>Instrument Identifier based on tag 22 Required unless the instrument is an Option and tags 167, 55, 200, 201, 202, and 205 are provided.</td>
+</tr>
+<tr>
+<td><code>Security Type</code></td>
+<td><code>167</code></td>
+<td></td>
+<td><code>String</code></td>
+<td></td>
+<td><code>CR</code></td>
+<td>Indicates type of security. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Symbol</code></td>
+<td><code>55</code></td>
+<td></td>
+<td><code>String</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Ticker symbol. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Month Year</code></td>
+<td><code>200</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>6</code></td>
+<td><code>CR</code></td>
+<td>Month and year of the maturity for an Option. Maturity Month Year in format <code>YYYYMM</code>. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Put Or Call</code></td>
+<td><code>201</code></td>
+<td><code>0</code> <code>1</code></td>
+<td><code>Integer</code></td>
+<td><code>1</code></td>
+<td><code>CR</code></td>
+<td>Indicates whether an Option is for a put or a call <code>0 = Put</code> <code>1 = Call</code> Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Strike Price</code></td>
+<td><code>202</code></td>
+<td></td>
+<td><code>Decimal</code></td>
+<td><code>8</code></td>
+<td><code>CR</code></td>
+<td>Strike Price for an Option. Required for Options where tags 22 or 48 are not provided.</td>
+</tr>
+<tr>
+<td><code>Maturity Day</code></td>
+<td><code>205</code></td>
+<td></td>
+<td><code>Integer</code></td>
+<td><code>2</code></td>
+<td><code>CR</code></td>
+<td>To be used in conjunction with Maturity Month Year <code>200</code> to specify a particular maturity date for an Option. Required for Options where tags 22 or 48 are not provided.</td>
 </tr>
 <tr>
 <td><code>InstrumentCountry</code></td>

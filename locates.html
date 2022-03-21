@@ -1,0 +1,1978 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Documentation</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="stylesheets/screen-75f6955d.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch-8f5ea5a5.js"></script>
+
+  </head>
+
+  <body class="locates" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo-dbc3187b.png" class="logo" alt="" />
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#configuring-fix-session" class="toc-h1 toc-link" data-title="Configuring FIX Session">Configuring FIX Session</a>
+          </li>
+          <li>
+            <a href="#message-flows" class="toc-h1 toc-link" data-title="Message Flows">Message Flows</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#preferred-message-flow" class="toc-h2 toc-link" data-title="Preferred Message Flow">Preferred Message Flow</a>
+                  </li>
+                  <li>
+                    <a href="#other-message-flow" class="toc-h2 toc-link" data-title="Other Message Flow">Other Message Flow</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#message-list" class="toc-h1 toc-link" data-title="Message List">Message List</a>
+          </li>
+          <li>
+            <a href="#new-order-single-request" class="toc-h1 toc-link" data-title="New Order - Single (Request)">New Order - Single (Request)</a>
+          </li>
+          <li>
+            <a href="#new-order-list-request" class="toc-h1 toc-link" data-title="New Order - List (Request)">New Order - List (Request)</a>
+          </li>
+          <li>
+            <a href="#execution-report-request" class="toc-h1 toc-link" data-title="Execution Report (Request)">Execution Report (Request)</a>
+          </li>
+          <li>
+            <a href="#new-order-single-accept-reject" class="toc-h1 toc-link" data-title="New Order-Single (Accept/Reject)">New Order-Single (Accept/Reject)</a>
+          </li>
+          <li>
+            <a href="#new-order-list-accept-reject" class="toc-h1 toc-link" data-title="New Order-List (Accept/Reject)">New Order-List (Accept/Reject)</a>
+          </li>
+          <li>
+            <a href="#execution-report-accept-reject" class="toc-h1 toc-link" data-title="Execution Report (Accept/Reject)">Execution Report (Accept/Reject)</a>
+          </li>
+          <li>
+            <a href="#reject" class="toc-h1 toc-link" data-title="Reject">Reject</a>
+          </li>
+          <li>
+            <a href="#quote-request" class="toc-h1 toc-link" data-title="Quote Request">Quote Request</a>
+          </li>
+          <li>
+            <a href="#quote" class="toc-h1 toc-link" data-title="Quote">Quote</a>
+          </li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Locates FIX API specification details the tags and values along with description of values for each field for processing locate requests and acceptances from OMS clients. Clear Street currently utilizes FIX 4.2 format.</p>
+<h1 id='configuring-fix-session'>Configuring FIX Session</h1><div class="highlight"><pre class="highlight plaintext"><code>// Example Config
+[DEFAULT]
+ReconnectInterval=5
+SenderCompID=LOCATESCLIENT
+HeartBtInt=30
+SocketAcceptPort=31234
+TargetCompID=CLST
+HeartBtInt=30
+SocketConnectPort=31234
+SocketConnectHost=100.0.0.0
+BeginString=FIX.4.2
+
+[SESSION]
+StartTime=04:00:00
+EndTime=22:00:00
+</code></pre></div>
+<p>A FIX session is defined as a unique combination of a <code>BeginString</code> (the FIX version number 4.2), a <code>SenderCompID</code> (OMS Client ID as defined by Clear Street), and a <code>TargetCompID</code>.</p>
+
+<p>A FIX session has an active time period during which all data is transmitted. Clear Street currently accepts connections between 4 AM EST to 10 PM EST on all business days. Clear Street will act as an acceptor and OMS will be the initiator.</p>
+
+<p>A <code>Logon</code> message (<code>Tag 35=A</code>) must be sent to Clear Street on every business day to indicate the begining of activity and a <code>Logout</code> message (<code>Tag 35=5</code>)must be sent to Clear Street indicating end of activity for that day. </p>
+
+<p>Clear Street also recommends exchange of heartbeats every 30 seconds by sending a message with <code>Tag 35=0</code>.</p>
+
+<p>Clear Street expects every message sent to have a unique continuous sequence number as part of message with Tag 34=. If there are any gaps in sequence numbers, a sequence reset message will sent to OMS client with tag <code>34=4</code>.</p>
+
+<p>All requests must either provide a <code>Symbol</code> (Tag 55) or both <code>IDSource</code> (Tag 22) and <code>SecurityID</code> (Tag 48) to clearly identify a security. <code>IDSource</code> (Tag 22) and <code>SecurityID</code> are marked as Conditionall Required for this purpose.</p>
+<h1 id='message-flows'>Message Flows</h1>
+<p>Currently we support two different message flows.</p>
+<h2 id='preferred-message-flow'>Preferred Message Flow</h2>
+<ol>
+<li>OMS will send a <code>Quote Request</code> message to locate securities</li>
+<li>Clear Street responsds by sending a <code>Quote</code> message with the located securities information including Locate_ID in <code>Tag 117</code>.</li>
+<li>OMS will send a <code>New Order</code> meessage by setting <code>Tag 117</code> with the Locate ID that Clear Street provided.</li>
+<li>Clear Street responsds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc  in <code>Tag 39</code></li>
+</ol>
+<h2 id='other-message-flow'>Other Message Flow</h2>
+<p>This flow will be decommissioned in the future once all OMSs migrate to the preferred message flow above.</p>
+
+<ol>
+<li>OMS will send a <code>New Order</code> message to locate securities</li>
+<li>Clear Street responsds by sending a <code>Execution Report</code> message with the located securities information including Locate_ID in <code>Tag 37</code>.</li>
+<li>OMS will send a <code>New Order</code> meessage by setting <code>Tag 117</code> with the Locate ID with status code that Clear Street provided. To accept OMS need to send Locate_ID,1 for <code>Tag 117</code> and to reject OMS need to send Locate_ID,3 for <code>Tag 117</code>.</li>
+<li>Clear Street responsds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc in <code>Tag 39</code></li>
+</ol>
+<h1 id='message-list'>Message List</h1>
+<table><thead>
+<tr>
+<th>Message</th>
+<th>Tag 35</th>
+<th>Comments</th>
+<th>Direction w.r.t. CLST</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>New Order - Single</td>
+<td>D</td>
+<td>1. Request to locate a single security <br/>2. Request to Accept/Reject a single locate</td>
+<td>Incoming</td>
+</tr>
+<tr>
+<td>New Order - List</td>
+<td>E</td>
+<td>1. Request to locate multiple securities <br/>2. Request to Accept/Reject multiple locates</td>
+<td>Incoming</td>
+</tr>
+<tr>
+<td>Execution Report</td>
+<td>8</td>
+<td>1. Offer response for a single locate request with locate id <br/>2. Status response for a single locate accept/reject message with locate id <br/>3. Multiple status responses for a list of locate accept/reject messages with locate ids</td>
+<td>Outgoing</td>
+</tr>
+<tr>
+<td>Reject</td>
+<td>3</td>
+<td>1. Any validation/authentication errors on the Order requests</td>
+<td>Outgoing</td>
+</tr>
+<tr>
+<td>Quote Request</td>
+<td>Required</td>
+<td>1. Request to locate a list of securities</td>
+<td>Incoming</td>
+</tr>
+<tr>
+<td>Quote</td>
+<td>S</td>
+<td>1. Response for quote request. Multiple responses are send depending on the number of quotes requested.</td>
+<td>Outgoing</td>
+</tr>
+</tbody></table>
+<h1 id='new-order-single-request'>New Order - Single (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>// Example 1: By Symbol
+8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345671\u000155=IBM\u000154=1\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u0001440=TRADERID\u00011=ACCOUNTID\u000158=THISISASINGLELOCATEREQUESTBYSYMBOL\u000110=106\u0001
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>// Example 2: By CUSIP
+8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345672\u000154=1\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u000122=1\u000148=459200101\u0001440=TRADERID\u00011=ACCOUNTID\u000158=THISISASINGLELOCATEREQUESTBYCUSIP\u000110=106\u0001
+</code></pre></div>
+<p><code>New Order - Single</code> is a request sent by OMS to locate a single security. </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>D</td>
+<td>Message type</td>
+<td>D</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClOrdID</td>
+<td>11</td>
+<td></td>
+<td>Unique ID for the Order</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td>25</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>TransactTime</td>
+<td>60</td>
+<td></td>
+<td>Date+Time in UTC</td>
+<td>20220121-13:27:43.000</td>
+<td>YYYYMMDD-HH:mm:SS:sss</td>
+<td>21</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ExecBroker</td>
+<td>76</td>
+<td></td>
+<td>Credential string: username,password</td>
+<td>USRNM,PSWD</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of share ordered</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>1</td>
+<td></td>
+<td>Account ID</td>
+<td>ACCTID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>HandInst</td>
+<td>21</td>
+<td>1-Auto, Private<br/>2-Auto, Public<br/>3-Manual</td>
+<td>Instructions for order handling on Broker trading floor</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy<br/>2-Sell<br/>3-Buy Minus<br/>4-Sell Plus<br/>5-Sell Short<br/>6-Sell Short Exempt<br/>7-Undisclosed<br/>8-Cross<br/>9-Cross Short</td>
+<td>Side</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>OrdType</td>
+<td>40</td>
+<td>1-Market<br/>2-Limit<br/>3-Stop<br/>4-Stop Limit<br/>5-Market On Close<br/>6-With or Without<br/>7-Limit or Better<br/>8-Limit With or Without<br/>9-On Basis<br/>A-On Close<br/>B-Limit On Close<br/>C-Forex C<br/>D-Previously Quoted<br/>E-Previously Indicated<br/>F-Forext F<br/>G-Forex G<br/>H-Forex H<br/>I-Funari<br/>P-Pegged</td>
+<td>Order Type</td>
+<td>1</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>ClearingAccount</td>
+<td>440</td>
+<td></td>
+<td>Trader ID</td>
+<td>TRDRID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>58</td>
+<td></td>
+<td>Any comments by trader</td>
+<td>comment</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+</tr>
+</tbody></table>
+<h1 id='new-order-list-request'>New Order - List (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=0054\u000135=E\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000166=10000001\u0001394=3\u000168=2\u000173=2\u000111=12345681\u000167=1\u000155=IBM\u000154=1\u000158=THISISALISTLOCATEREQUESTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u0001440=TRADERID\u00011=ACCOUNTID\u000111=12345681\u000167=2\u000155=AAPL\u000154=1\u000158=THISISALISTLOCATEREQUESTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=2000\u0001440=TRADERID\u00011=ACCOUNTID\u000110=106\u0001
+</code></pre></div>
+<p><code>New Order - List</code> is a request sent by OMS to locate multiple securities. </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+<th>Repeatable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>E</td>
+<td>Message type</td>
+<td>E</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>ListID</td>
+<td>66</td>
+<td></td>
+<td>Unique ID for the Order</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>BidType</td>
+<td>394</td>
+<td>1-Non Disclosed<br/>2-Disclosed<br/>3-No Bidding Process</td>
+<td>Code to identify the type of Bid request</td>
+<td>3</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>TotNoOrders</td>
+<td>68</td>
+<td></td>
+<td>Total number of list order entries across all messages</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>NoOrders</td>
+<td>73</td>
+<td></td>
+<td>Number of orders in this message</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>ClOrdID</td>
+<td>11</td>
+<td></td>
+<td>Unique ID for the Order. Must be the first in the repeatable list.</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td>25</td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ListSeqNo</td>
+<td>67</td>
+<td></td>
+<td>Order number within this list</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy<br/>2-Sell<br/>3-Buy Minus<br/>4-Sell Plus<br/>5-Sell Short<br/>6-Sell Short Exempt<br/>7-Undisclosed<br/>8-Cross<br/>9-Cross Short</td>
+<td>Side</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>58</td>
+<td></td>
+<td>Any comments by trader</td>
+<td>comment</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>TransactTime</td>
+<td>60</td>
+<td></td>
+<td>Date+Time in UTC</td>
+<td>20220121-13:27:43.000</td>
+<td>YYYYMMDD-HH:mm:SS:sss</td>
+<td>21</td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OrdType</td>
+<td>40</td>
+<td>1-Market<br/>2-Limit<br/>3-Stop<br/>4-Stop Limit<br/>5-Market On Close<br/>6-With or Without<br/>7-Limit or Better<br/>8-Limit With or Without<br/>9-On Basis<br/>A-On Close<br/>B-Limit On Close<br/>C-Forex C<br/>D-Previously Quoted<br/>E-Previously Indicated<br/>F-Forext F<br/>G-Forex G<br/>H-Forex H<br/>I-Funari<br/>P-Pegged</td>
+<td>Order Type</td>
+<td>1</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ExecBroker</td>
+<td>76</td>
+<td></td>
+<td>Credential string: username,password</td>
+<td>USRNM,PSWD</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of share ordered</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ClearingAccount</td>
+<td>440</td>
+<td></td>
+<td>Trader ID</td>
+<td>TRDRID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>1</td>
+<td></td>
+<td>Account ID</td>
+<td>ACCTID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h1 id='execution-report-request'>Execution Report (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=8\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u000137=200004\u000111=12345671\u000155=IBM\u000154=1\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000138=1000\u000158=THISISASINGLELOCATERESPONSEBYSYMBOL\u000117=200004\u000120=0\u0001150=B\u000139=B\u00011=ACCOUNTID\u0001151=0\u000114=1000\u00016=23.00\u000144=0.23\u000110=025\u0001
+</code></pre></div>
+<p><code>Execution Report</code> (One Response Message for each item in List of Order Request) is a response sent by Clear Street with a locate. 
+There will be one response message for each item if the response is for a list of multiple securities request via <code>New Order - List</code></p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>8</td>
+<td>Message type</td>
+<td>8</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrderID</td>
+<td>37</td>
+<td></td>
+<td>Unique Locate ID</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClOrdID</td>
+<td>11</td>
+<td></td>
+<td>ClOrdID from the New Order message</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td>25</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy<br/>2-Sell<br/>3-Buy Minus<br/>4-Sell Plus<br/>5-Sell Short<br/>6-Sell Short Exempt<br/>7-Undisclosed<br/>8-Cross<br/>9-Cross Short</td>
+<td>Side</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>TransactTime</td>
+<td>60</td>
+<td></td>
+<td>Date+Time in UTC</td>
+<td>20220121-13:27:43.000</td>
+<td>YYYYMMDD-HH:mm:SS:sss</td>
+<td>21</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Same as Account ID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of share requested</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>58</td>
+<td></td>
+<td>Any comments by locating broker or indicating partial fills or part of original order</td>
+<td>comment</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>ExecID</td>
+<td>17</td>
+<td></td>
+<td>Unique ID for each message</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ExecTransType</td>
+<td>20</td>
+<td>0-New<br/>1-Cancel<br/>2-Correct<br/>3-Status</td>
+<td>Transaction type</td>
+<td>0</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ExecType</td>
+<td>150</td>
+<td>0-New<br/>1-Partial Fill<br/>2-Filled<br/>3-Done for Day<br/>8-Rejected<br/>B-Calculated/Offered<br/>C-Expired</td>
+<td>Type of Execution report</td>
+<td>B</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrdStatus</td>
+<td>39</td>
+<td>0-New<br/>1-Partial Fill<br/>2-Filled<br/>3-Done for Day<br/>8-Rejected<br/>B-Calculated/Offered<br/>C-Expired</td>
+<td>Current status of Order</td>
+<td>B</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>1</td>
+<td></td>
+<td>Account ID from Order</td>
+<td>ACCTID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>LeavesQty</td>
+<td>151</td>
+<td></td>
+<td>Amount of shares open for further execution</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>CumQty</td>
+<td>14</td>
+<td></td>
+<td>Currently executed shares</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>AvgPx</td>
+<td>6</td>
+<td></td>
+<td>Calculated average price</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>44</td>
+<td></td>
+<td>Price</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h1 id='new-order-single-accept-reject'>New Order-Single (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>// Example 1: Accept
+8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345681\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u00011=ACCOUNTID\u0001117=100011,1\u000110=106\u0001
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>// Example 2: Accept
+8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345681\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u00011=ACCOUNTID\u0001117=100011\u000110=106\u0001
+</code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>// Example 3: Reject
+8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345681\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u00011=ACCOUNTID\u0001117=100011,2\u000110=106\u0001
+</code></pre></div>
+<p><code>New Order-Single (Accept/Reject)</code>  is a request sent by OMS to accept/reject a locate that was offered by Clear Street. </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>D</td>
+<td>Message type</td>
+<td>D</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClOrdID</td>
+<td>11</td>
+<td></td>
+<td>Unique ID for the Order</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td>25</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>HandInst</td>
+<td>21</td>
+<td>1-Auto, Private<br/>2-Auto, Public<br/>3-Manual</td>
+<td>Instructions for order handling on Broker trading floor</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy<br/>2-Sell<br/>3-Buy Minus<br/>4-Sell Plus<br/>5-Sell Short<br/>6-Sell Short Exempt<br/>7-Undisclosed<br/>8-Cross<br/>9-Cross Short</td>
+<td>Side</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>TransactTime</td>
+<td>60</td>
+<td></td>
+<td>Date+Time in UTC</td>
+<td>20220121-13:27:43.000</td>
+<td>YYYYMMDD-HH:mm:SS:sss</td>
+<td>21</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrdType</td>
+<td>40</td>
+<td>1-Market<br/>2-Limit<br/>3-Stop<br/>4-Stop Limit<br/>5-Market On Close<br/>6-With or Without<br/>7-Limit or Better<br/>8-Limit With or Without<br/>9-On Basis<br/>A-On Close<br/>B-Limit On Close<br/>C-Forex C<br/>D-Previously Quoted<br/>E-Previously Indicated<br/>F-Forext F<br/>G-Forex G<br/>H-Forex H<br/>I-Funari<br/>P-Pegged</td>
+<td>Order Type</td>
+<td>1</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ExecBroker</td>
+<td>76</td>
+<td></td>
+<td>Credential string: username,password</td>
+<td>USRNM,PSWD</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of share ordered</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>ClearingAccount</td>
+<td>440</td>
+<td></td>
+<td>Trader ID</td>
+<td>TRDRID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>1</td>
+<td></td>
+<td>Account ID</td>
+<td>ACCTID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>QuoteID</td>
+<td>117</td>
+<td>Locate_ID,1-Accept Locate<br/>Locate_ID,2-Reject Locate</td>
+<td>Locate ID, Accept/Reject</td>
+<td>123456,1</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h1 id='new-order-list-accept-reject'>New Order-List (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=0054\u000135=E\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000166=10000002\u0001394=3\u000168=2\u000173=2\u000111=12345681\u000167=1\u000155=IBM\u000154=1\u000158=THISISALISTLOCATEACCEPTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u0001440=TRADERID\u00011=ACCOUNTID\u0001117=200005,1\u000111=12345681\u000167=2\u000155=AAPL\u000154=1\u000158=THISISALISTLOCATEACCEPTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=2000\u0001440=TRADERID\u00011=ACCOUNTID\u0001117=200006,1\u000110=106\u0001
+</code></pre></div>
+<p><code>New Order-List (Accept/Reject)</code> is a request sent by OMS to accept/reject multiple locates that were offered by Clear Street.</p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+<th>Repeatable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>E</td>
+<td>Message type</td>
+<td>E</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>ListID</td>
+<td>66</td>
+<td></td>
+<td>Unique ID for the Order</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>BidType</td>
+<td>394</td>
+<td>1-Non Disclosed<br/>2-Disclosed<br/>3-No Bidding Process</td>
+<td>Code to identify the type of Bid request</td>
+<td>3</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>TotNoOrders</td>
+<td>68</td>
+<td></td>
+<td>Total number of list order entries across all messages</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>NoOrders</td>
+<td>73</td>
+<td></td>
+<td>Number of orders in this message</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>ClOrdID</td>
+<td>11</td>
+<td></td>
+<td>Unique ID for the Order. Must be the first in the repeatable list.</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td>25</td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ListSeqNo</td>
+<td>67</td>
+<td></td>
+<td>Order number within this list</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy<br/>2-Sell<br/>3-Buy Minus<br/>4-Sell Plus<br/>5-Sell Short<br/>6-Sell Short Exempt<br/>7-Undisclosed<br/>8-Cross<br/>9-Cross Short</td>
+<td>Side</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>58</td>
+<td></td>
+<td>Any comments by trader</td>
+<td>comment</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>TransactTime</td>
+<td>60</td>
+<td></td>
+<td>Date+Time in UTC</td>
+<td>20220121-13:27:43.000</td>
+<td>YYYYMMDD-HH:mm:SS:sss</td>
+<td>21</td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OrdType</td>
+<td>40</td>
+<td>1-Market<br/>2-Limit<br/>3-Stop<br/>4-Stop Limit<br/>5-Market On Close<br/>6-With or Without<br/>7-Limit or Better<br/>8-Limit With or Without<br/>9-On Basis<br/>A-On Close<br/>B-Limit On Close<br/>C-Forex C<br/>D-Previously Quoted<br/>E-Previously Indicated<br/>F-Forext F<br/>G-Forex G<br/>H-Forex H<br/>I-Funari<br/>P-Pegged</td>
+<td>Order Type</td>
+<td>1</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ExecBroker</td>
+<td>76</td>
+<td></td>
+<td>Credential string: username,password</td>
+<td>USRNM,PSWD</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of share ordered</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>ClearingAccount</td>
+<td>440</td>
+<td></td>
+<td>Trader ID</td>
+<td>TRDRID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>1</td>
+<td></td>
+<td>Account ID</td>
+<td>ACCTID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>QuoteID</td>
+<td>117</td>
+<td>Locate_ID,1-Accept Locate<br/>Locate_ID,2-Reject Locate</td>
+<td>Locate ID, Accept/Reject</td>
+<td>123456,1</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h1 id='execution-report-accept-reject'>Execution Report (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=8\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u000137=200005\u000111=12345671\u000155=IBM\u000154=1\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000138=1000\u000158=THISISASINGLELOCATEACCEPTRESPONSEBYSYMBOL\u000117=200005\u000120=0\u0001150=2\u000139=2\u00011=ACCOUNTID\u0001151=0\u000114=1000\u00016=23.00\u000144=0.23\u000110=025\u0001
+</code></pre></div>
+<p><code>Execution Report</code> (One Response Message for each item in List of Order Accept/Reject) is a response sent by Clear Street confirming the accept/reject of a locate. 
+There will be one response message for each item if the response is for a list of multiple securities request via <code>New Order - List</code></p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>8</td>
+<td>Message type</td>
+<td>8</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrderID</td>
+<td>37</td>
+<td></td>
+<td>Unique Locate ID</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClOrdID</td>
+<td>11</td>
+<td></td>
+<td>ClOrdID from the New Order message</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td>25</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy<br/>2-Sell<br/>3-Buy Minus<br/>4-Sell Plus<br/>5-Sell Short<br/>6-Sell Short Exempt<br/>7-Undisclosed<br/>8-Cross<br/>9-Cross Short</td>
+<td>Side</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>TransactTime</td>
+<td>60</td>
+<td></td>
+<td>Date+Time in UTC</td>
+<td>20220121-13:27:43.000</td>
+<td>YYYYMMDD-HH:mm:SS:sss</td>
+<td>21</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Same as Account ID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of share requested</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>58</td>
+<td></td>
+<td>Any comments by locating broker or indicating partial fills or part of original order</td>
+<td>comment</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>ExecID</td>
+<td>17</td>
+<td></td>
+<td>Unique ID for each message</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ExecTransType</td>
+<td>20</td>
+<td>0-New<br/>1-Cancel<br/>2-Correct<br/>3-Status</td>
+<td>Transaction type</td>
+<td>0</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>ExecType</td>
+<td>150</td>
+<td>0-New<br/>1-Partial Fill<br/>2-Filled<br/>3-Done for Day<br/>8-Rejected<br/>B-Calculated/Offered<br/>C-Expired</td>
+<td>Type of Execution report</td>
+<td>2</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OrdStatus</td>
+<td>39</td>
+<td>0-New<br/>1-Partial Fill<br/>2-Filled<br/>3-Done for Day<br/>8-Rejected<br/>B-Calculated/Offered<br/>C-Expired</td>
+<td>Current status of Order</td>
+<td>2</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Account</td>
+<td>1</td>
+<td></td>
+<td>Account ID from Order</td>
+<td>ACCTID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>LeavesQty</td>
+<td>151</td>
+<td></td>
+<td>Amount of shares open for further execution</td>
+<td></td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>CumQty</td>
+<td>14</td>
+<td></td>
+<td>Currently executed shares</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>AvgPx</td>
+<td>6</td>
+<td></td>
+<td>Calculated average price</td>
+<td>0.23</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h1 id='reject'>Reject</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=3\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u000145=12345691\u000158=Order rejected. Missing Security ID\u000110=025\u0001
+</code></pre></div>
+<p><code>Reject</code> is sent by Clear Street where there are any issues with the request messages. </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>3</td>
+<td>Message type</td>
+<td>3</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>RefSeqNum</td>
+<td>45</td>
+<td></td>
+<td>Reference message sequence number</td>
+<td>123456789</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>58</td>
+<td></td>
+<td>Reason for reject</td>
+<td>Order rejected. Missing field ClOrdID</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h1 id='quote-request'>Quote Request</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=0054\u000135=R\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u0001131=123456783\u0001146=2\u0001115=ACCOUNTID\u0001109=ACCOUNTID\u000155=IBM\u000138=1000\u000154=1\u000155=AAPL\u000138=2000\u000154=1\u000110=106\u0001
+</code></pre></div>
+<p><code>Quote Request</code> is a request sent by OMS for locating multiple securities. </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+<th>Repeatable</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Message Type</td>
+<td>35</td>
+<td>Required</td>
+<td>Message type</td>
+<td>Required</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>NoRelatedSym</td>
+<td>146</td>
+<td></td>
+<td>Number of related symbols in this order</td>
+<td>1</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>QuoteReqID</td>
+<td>131</td>
+<td></td>
+<td>Unique ID for the Quote</td>
+<td>A12345bc</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>OnBehalfOfCompID</td>
+<td>115</td>
+<td></td>
+<td>On behalf of company ID<br/> Same as Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OrderQty</td>
+<td>38</td>
+<td></td>
+<td>Number of shares for which quote is being requested</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Side</td>
+<td>54</td>
+<td>1-Buy</td>
+<td>Side of Quote</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Optional</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<h1 id='quote'>Quote</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=S\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u0001131=123456783\u0001115=ACCOUNTID\u0001109=ACCOUNTID\u0001117=100001\u000155=IBM\u0001135=1000\u0001133=0.23\u000110=025\u0001
+</code></pre></div>
+<p><code>Quote</code> is a response sent by Clear Street as a reply to Quote Request message with Locate ID.
+There will be one response message for each of the securities requested as part of <code>Quote Request</code>. </p>
+
+<table><thead>
+<tr>
+<th>Field Name</th>
+<th>FIX Tag #</th>
+<th>Possible Values</th>
+<th>Comments</th>
+<th>Example</th>
+<th>Format</th>
+<th>Length</th>
+<th>Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>MsgType</td>
+<td>35</td>
+<td>S</td>
+<td>Message type</td>
+<td>S</td>
+<td>AlphaNumeric</td>
+<td>1</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>QuoteReqID</td>
+<td>131</td>
+<td></td>
+<td>Unique ID from the Quote Request ReferenceId</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OnBehalfOfCompID</td>
+<td>115</td>
+<td></td>
+<td>On behalf of company ID<br/> Filled with same information from Quote Request message account_id</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Optional</td>
+</tr>
+<tr>
+<td>ClientID</td>
+<td>109</td>
+<td></td>
+<td>Firm ID/MPID</td>
+<td>CLST</td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>QuoteID</td>
+<td>117</td>
+<td></td>
+<td>Unique ID for this quote locate_id</td>
+<td></td>
+<td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>55</td>
+<td></td>
+<td>Security ticker</td>
+<td>AAPL</td>
+<td>Alpha</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>IDSource</td>
+<td>22</td>
+<td>1-CUSIP<br/>2-SEDOL<br/>4-ISIN<br/>8-Exchange Symbol</td>
+<td>Security ID type</td>
+<td>1</td>
+<td>Numeric</td>
+<td>1</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>SecurityID</td>
+<td>48</td>
+<td></td>
+<td>Security ID as per IDSource tag 22</td>
+<td>037833100</td>
+<td>AlphaNumeric</td>
+<td>12</td>
+<td>Conditionally Required</td>
+</tr>
+<tr>
+<td>OfferSize</td>
+<td>135</td>
+<td></td>
+<td>Number of shares that can be offered<br/>If availability is less the OrderQty then availability<br/>If availability is more than OrderQty then OrderQty<br/>1 if no OrderQty is specified and available<br/>0 if no OrderQty is specified and not available</td>
+<td>1000</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>OfferPx</td>
+<td>133</td>
+<td></td>
+<td>Offer price for the security requested</td>
+<td>0.23</td>
+<td>Numeric</td>
+<td></td>
+<td>Required</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

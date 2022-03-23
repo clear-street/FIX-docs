@@ -311,7 +311,7 @@
                     <a href="#preferred-message-flow" class="toc-h2 toc-link" data-title="Preferred Message Flow">Preferred Message Flow</a>
                   </li>
                   <li>
-                    <a href="#other-message-flow" class="toc-h2 toc-link" data-title="Other Message Flow">Other Message Flow</a>
+                    <a href="#existing-message-flow" class="toc-h2 toc-link" data-title="Existing Message Flow">Existing Message Flow</a>
                   </li>
               </ul>
           </li>
@@ -384,18 +384,18 @@ EndTime=22:00:00
 <h2 id='preferred-message-flow'>Preferred Message Flow</h2>
 <ol>
 <li>OMS will send a <code>Quote Request</code> message to locate securities</li>
-<li>Clear Street responsds by sending a <code>Quote</code> message with the located securities information including Locate_ID in <code>Tag 117</code>.</li>
+<li>Clear Street responds by sending a <code>Quote</code> message with the located securities information including Locate_ID in <code>Tag 117</code>.</li>
 <li>OMS will send a <code>New Order</code> meessage by setting <code>Tag 117</code> with the Locate ID that Clear Street provided.</li>
-<li>Clear Street responsds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc  in <code>Tag 39</code></li>
+<li>Clear Street responds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc  in <code>Tag 39</code></li>
 </ol>
-<h2 id='other-message-flow'>Other Message Flow</h2>
+<h2 id='existing-message-flow'>Existing Message Flow</h2>
 <p>This flow will be decommissioned in the future once all OMSs migrate to the preferred message flow above.</p>
 
 <ol>
 <li>OMS will send a <code>New Order</code> message to locate securities</li>
-<li>Clear Street responsds by sending a <code>Execution Report</code> message with the located securities information including Locate_ID in <code>Tag 37</code>.</li>
+<li>Clear Street responds by sending a <code>Execution Report</code> message with the located securities information including Locate_ID in <code>Tag 37</code>.</li>
 <li>OMS will send a <code>New Order</code> meessage by setting <code>Tag 117</code> with the Locate ID with status code that Clear Street provided. To accept OMS need to send Locate_ID,1 for <code>Tag 117</code> and to reject OMS need to send Locate_ID,3 for <code>Tag 117</code>.</li>
-<li>Clear Street responsds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc in <code>Tag 39</code></li>
+<li>Clear Street responds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc in <code>Tag 39</code></li>
 </ol>
 <h1 id='message-list'>Message List</h1>
 <table><thead>
@@ -432,7 +432,7 @@ EndTime=22:00:00
 </tr>
 <tr>
 <td>Quote Request</td>
-<td>Required</td>
+<td>R</td>
 <td>1. Request to locate a list of securities</td>
 <td>Incoming</td>
 </tr>
@@ -444,9 +444,9 @@ EndTime=22:00:00
 </tr>
 </tbody></table>
 <h1 id='new-order-single-request'>New Order - Single (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>// Example 1: By Symbol
-8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345671\u000155=IBM\u000154=1\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u0001440=TRADERID\u00011=ACCOUNTID\u000158=THISISASINGLELOCATEREQUESTBYSYMBOL\u000110=106\u0001
+8=FIX.4.29=005435=D49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0111=1234567155=IBM54=160=20220208-21:10:00.79240=1109=ACCOUNTID76=USRNM,PSWD38=1000440=TRADERID1=ACCOUNTID58=THISISASINGLELOCATEREQUESTBYSYMBOL10=106
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>// Example 2: By CUSIP
-8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345672\u000154=1\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u000122=1\u000148=459200101\u0001440=TRADERID\u00011=ACCOUNTID\u000158=THISISASINGLELOCATEREQUESTBYCUSIP\u000110=106\u0001
+8=FIX.4.29=005435=D49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0111=1234567254=160=20220208-21:10:00.79240=1109=ACCOUNTID76=USRNM,PSWD38=100022=148=459200101440=TRADERID1=ACCOUNTID58=THISISASINGLELOCATEREQUESTBYCUSIP10=106
 </code></pre></div>
 <p><code>New Order - Single</code> is a request sent by OMS to locate a single security. </p>
 
@@ -613,9 +613,9 @@ EndTime=22:00:00
 <td>Conditionally Required</td>
 </tr>
 </tbody></table>
-<h1 id='new-order-list-request'>New Order - List (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=0054\u000135=E\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000166=10000001\u0001394=3\u000168=2\u000173=2\u000111=12345681\u000167=1\u000155=IBM\u000154=1\u000158=THISISALISTLOCATEREQUESTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u0001440=TRADERID\u00011=ACCOUNTID\u000111=12345681\u000167=2\u000155=AAPL\u000154=1\u000158=THISISALISTLOCATEREQUESTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=2000\u0001440=TRADERID\u00011=ACCOUNTID\u000110=106\u0001
+<h1 id='new-order-list-request'>New Order - List (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=005435=E49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0166=10000001394=368=273=211=1234568167=155=IBM54=158=THISISALISTLOCATEREQUESTBYSYMBOL60=20220208-21:10:00.79240=1109=ACCOUNTID76=USRNM,PSWD38=1000440=TRADERID1=ACCOUNTID11=1234568167=255=AAPL54=158=THISISALISTLOCATEREQUESTBYSYMBOL60=20220208-21:10:00.79240=1109=ACCOUNTID76=USRNM,PSWD38=2000440=TRADERID1=ACCOUNTID10=106
 </code></pre></div>
-<p><code>New Order - List</code> is a request sent by OMS to locate multiple securities. </p>
+<p><code>New Order - List</code> is a request sent by OMS to locate multiple securities. Please note that repeatable fields must follow the same order mentioned in this document.</p>
 
 <table><thead>
 <tr>
@@ -840,7 +840,7 @@ EndTime=22:00:00
 <td>Yes</td>
 </tr>
 </tbody></table>
-<h1 id='execution-report-request'>Execution Report (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=8\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u000137=200004\u000111=12345671\u000155=IBM\u000154=1\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000138=1000\u000158=THISISASINGLELOCATERESPONSEBYSYMBOL\u000117=200004\u000120=0\u0001150=B\u000139=B\u00011=ACCOUNTID\u0001151=0\u000114=1000\u00016=23.00\u000144=0.23\u000110=025\u0001
+<h1 id='execution-report-request'>Execution Report (Request)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=5935=834=2851249=CLSTLOCT52=20220208-21:10:45.33656=OMSC37=20000411=1234567155=IBM54=160=20220208-21:10:00.792109=ACCOUNTID38=100058=THISISASINGLELOCATERESPONSEBYSYMBOL17=20000420=0150=B39=B1=ACCOUNTID151=014=10006=23.0044=0.2310=025
 </code></pre></div>
 <p><code>Execution Report</code> (One Response Message for each item in List of Order Request) is a response sent by Clear Street with a locate. 
 There will be one response message for each item if the response is for a list of multiple securities request via <code>New Order - List</code></p>
@@ -1059,11 +1059,11 @@ There will be one response message for each item if the response is for a list o
 </tr>
 </tbody></table>
 <h1 id='new-order-single-accept-reject'>New Order-Single (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>// Example 1: Accept
-8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345681\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u00011=ACCOUNTID\u0001117=100011,1\u000110=106\u0001
+8=FIX.4.29=005435=D49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0111=1234568160=20220208-21:10:00.792109=ACCOUNTID76=USRNM,PSWD1=ACCOUNTID117=100011,110=106
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>// Example 2: Accept
-8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345681\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u00011=ACCOUNTID\u0001117=100011\u000110=106\u0001
+8=FIX.4.29=005435=D49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0111=1234568160=20220208-21:10:00.792109=ACCOUNTID76=USRNM,PSWD1=ACCOUNTID117=10001110=106
 </code></pre></div><div class="highlight"><pre class="highlight plaintext"><code>// Example 3: Reject
-8=FIX.4.2\u00019=0054\u000135=D\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000111=12345681\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u00011=ACCOUNTID\u0001117=100011,2\u000110=106\u0001
+8=FIX.4.29=005435=D49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0111=1234568160=20220208-21:10:00.792109=ACCOUNTID76=USRNM,PSWD1=ACCOUNTID117=100011,210=106
 </code></pre></div>
 <p><code>New Order-Single (Accept/Reject)</code>  is a request sent by OMS to accept/reject a locate that was offered by Clear Street. </p>
 
@@ -1230,9 +1230,9 @@ There will be one response message for each item if the response is for a list o
 <td>Required</td>
 </tr>
 </tbody></table>
-<h1 id='new-order-list-accept-reject'>New Order-List (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=0054\u000135=E\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u000166=10000002\u0001394=3\u000168=2\u000173=2\u000111=12345681\u000167=1\u000155=IBM\u000154=1\u000158=THISISALISTLOCATEACCEPTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=1000\u0001440=TRADERID\u00011=ACCOUNTID\u0001117=200005,1\u000111=12345681\u000167=2\u000155=AAPL\u000154=1\u000158=THISISALISTLOCATEACCEPTBYSYMBOL\u000160=20220208-21:10:00.792\u000140=1\u0001109=ACCOUNTID\u000176=USRNM,PSWD\u000138=2000\u0001440=TRADERID\u00011=ACCOUNTID\u0001117=200006,1\u000110=106\u0001
+<h1 id='new-order-list-accept-reject'>New Order-List (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=005435=E49=OMSC56=CLSTLOCT34=136052=20220208-21:10:0166=10000002394=368=273=211=1234568167=155=IBM54=158=THISISALISTLOCATEACCEPTBYSYMBOL60=20220208-21:10:00.79240=1109=ACCOUNTID76=USRNM,PSWD38=1000440=TRADERID1=ACCOUNTID117=200005,111=1234568167=255=AAPL54=158=THISISALISTLOCATEACCEPTBYSYMBOL60=20220208-21:10:00.79240=1109=ACCOUNTID76=USRNM,PSWD38=2000440=TRADERID1=ACCOUNTID117=200006,110=106
 </code></pre></div>
-<p><code>New Order-List (Accept/Reject)</code> is a request sent by OMS to accept/reject multiple locates that were offered by Clear Street.</p>
+<p><code>New Order-List (Accept/Reject)</code> is a request sent by OMS to accept/reject multiple locates that were offered by Clear Street. Please note that repeatable fields must follow the same order mentioned in this document.</p>
 
 <table><thead>
 <tr>
@@ -1468,7 +1468,7 @@ There will be one response message for each item if the response is for a list o
 <td>Yes</td>
 </tr>
 </tbody></table>
-<h1 id='execution-report-accept-reject'>Execution Report (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=8\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u000137=200005\u000111=12345671\u000155=IBM\u000154=1\u000160=20220208-21:10:00.792\u0001109=ACCOUNTID\u000138=1000\u000158=THISISASINGLELOCATEACCEPTRESPONSEBYSYMBOL\u000117=200005\u000120=0\u0001150=2\u000139=2\u00011=ACCOUNTID\u0001151=0\u000114=1000\u00016=23.00\u000144=0.23\u000110=025\u0001
+<h1 id='execution-report-accept-reject'>Execution Report (Accept/Reject)</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=5935=834=2851249=CLSTLOCT52=20220208-21:10:45.33656=OMSC37=20000511=1234567155=IBM54=160=20220208-21:10:00.792109=ACCOUNTID38=100058=THISISASINGLELOCATEACCEPTRESPONSEBYSYMBOL17=20000520=0150=239=21=ACCOUNTID151=014=10006=23.0044=0.2310=025
 </code></pre></div>
 <p><code>Execution Report</code> (One Response Message for each item in List of Order Accept/Reject) is a response sent by Clear Street confirming the accept/reject of a locate. 
 There will be one response message for each item if the response is for a list of multiple securities request via <code>New Order - List</code></p>
@@ -1676,7 +1676,7 @@ There will be one response message for each item if the response is for a list o
 <td>Required</td>
 </tr>
 </tbody></table>
-<h1 id='reject'>Reject</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=3\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u000145=12345691\u000158=Order rejected. Missing Security ID\u000110=025\u0001
+<h1 id='reject'>Reject</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=5935=334=2851249=CLSTLOCT52=20220208-21:10:45.33656=OMSC45=1234569158=Order rejected. Missing Security ID10=025
 </code></pre></div>
 <p><code>Reject</code> is sent by Clear Street where there are any issues with the request messages. </p>
 
@@ -1723,9 +1723,9 @@ There will be one response message for each item if the response is for a list o
 <td>Required</td>
 </tr>
 </tbody></table>
-<h1 id='quote-request'>Quote Request</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=0054\u000135=R\u000149=OMSC\u000156=CLSTLOCT\u000134=1360\u000152=20220208-21:10:01\u0001131=123456783\u0001146=2\u0001115=ACCOUNTID\u0001109=ACCOUNTID\u000155=IBM\u000138=1000\u000154=1\u000155=AAPL\u000138=2000\u000154=1\u000110=106\u0001
+<h1 id='quote-request'>Quote Request</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=005435=R49=OMSC56=CLSTLOCT34=136052=20220208-21:10:01131=123456783146=2115=ACCOUNTID109=ACCOUNTID55=IBM38=100054=155=AAPL38=200054=110=106
 </code></pre></div>
-<p><code>Quote Request</code> is a request sent by OMS for locating multiple securities. </p>
+<p><code>Quote Request</code> is a request sent by OMS for locating multiple securities. Please note that repeatable fields must follow the same order mentioned in this document.</p>
 
 <table><thead>
 <tr>
@@ -1748,17 +1748,6 @@ There will be one response message for each item if the response is for a list o
 <td>Required</td>
 <td>AlphaNumeric</td>
 <td>1</td>
-<td>Required</td>
-<td>No</td>
-</tr>
-<tr>
-<td>NoRelatedSym</td>
-<td>146</td>
-<td></td>
-<td>Number of related symbols in this order</td>
-<td>1</td>
-<td>Numeric</td>
-<td></td>
 <td>Required</td>
 <td>No</td>
 </tr>
@@ -1791,6 +1780,17 @@ There will be one response message for each item if the response is for a list o
 <td>Firm ID/MPID</td>
 <td>CLST</td>
 <td>AlphaNumeric</td>
+<td></td>
+<td>Required</td>
+<td>No</td>
+</tr>
+<tr>
+<td>NoRelatedSym</td>
+<td>146</td>
+<td></td>
+<td>Number of related symbols in this order</td>
+<td>1</td>
+<td>Numeric</td>
 <td></td>
 <td>Required</td>
 <td>No</td>
@@ -1851,7 +1851,7 @@ There will be one response message for each item if the response is for a list o
 <td>Yes</td>
 </tr>
 </tbody></table>
-<h1 id='quote'>Quote</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.2\u00019=59\u000135=S\u000134=28512\u000149=CLSTLOCT\u000152=20220208-21:10:45.336\u000156=OMSC\u0001131=123456783\u0001115=ACCOUNTID\u0001109=ACCOUNTID\u0001117=100001\u000155=IBM\u0001135=1000\u0001133=0.23\u000110=025\u0001
+<h1 id='quote'>Quote</h1><div class="highlight"><pre class="highlight plaintext"><code>8=FIX.4.29=5935=S34=2851249=CLSTLOCT52=20220208-21:10:45.33656=OMSC131=123456783115=ACCOUNTID109=ACCOUNTID117=10000155=IBM135=1000133=0.2310=025
 </code></pre></div>
 <p><code>Quote</code> is a response sent by Clear Street as a reply to Quote Request message with Locate ID.
 There will be one response message for each of the securities requested as part of <code>Quote Request</code>. </p>

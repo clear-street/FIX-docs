@@ -376,26 +376,28 @@ EndTime=22:00:00
 
 <p>Clear Street also recommends exchange of heartbeats every 30 seconds by sending a message with <code>Tag 35=0</code>.</p>
 
-<p>Clear Street expects every message sent to have a unique continuous sequence number as part of message with Tag 34=. If there are any gaps in sequence numbers, a sequence reset message will sent to OMS client with tag <code>34=4</code>.</p>
+<p>Clear Street expects every message to have a unique continuous sequence number as part of message with <code>Tag 34</code>. If there are any gaps in sequence numbers, a sequence reset message will be sent to OMS client with tag <code>34=4</code>.</p>
 
-<p>All requests must either provide a <code>Symbol</code> (Tag 55) or both <code>IDSource</code> (Tag 22) and <code>SecurityID</code> (Tag 48) to clearly identify a security. <code>IDSource</code> (Tag 22) and <code>SecurityID</code> are marked as Conditionall Required for this purpose.</p>
+<p>All requests must either provide a <code>Symbol</code> (Tag 55) or both <code>IDSource</code> (Tag 22) and <code>SecurityID</code> (Tag 48) to clearly identify a security. <code>IDSource</code> (Tag 22) and <code>SecurityID</code> are marked as conditionally required for this purpose.</p>
 <h1 id='message-flows'>Message Flows</h1>
 <p>Currently we support two different message flows.</p>
 <h2 id='preferred-message-flow'>Preferred Message Flow</h2>
+<p>We request all new OMSs to follow this message flow</p>
+
 <ol>
 <li>OMS will send a <code>Quote Request</code> message to locate securities</li>
 <li>Clear Street responds by sending a <code>Quote</code> message with the located securities information including Locate_ID in <code>Tag 117</code>.</li>
-<li>OMS will send a <code>New Order</code> meessage by setting <code>Tag 117</code> with the Locate ID that Clear Street provided.</li>
-<li>Clear Street responds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc  in <code>Tag 39</code></li>
+<li>OMS will send a <code>New Order</code> message by setting <code>Tag 117</code> with the Locate_ID that Clear Street provided.</li>
+<li>Clear Street responds by sending an <code>Execution Report</code> message with status update such as accepted/expired/etc  in <code>Tag 39</code></li>
 </ol>
 <h2 id='existing-message-flow'>Existing Message Flow</h2>
 <p>This flow will be decommissioned in the future once all OMSs migrate to the preferred message flow above.</p>
 
 <ol>
 <li>OMS will send a <code>New Order</code> message to locate securities</li>
-<li>Clear Street responds by sending a <code>Execution Report</code> message with the located securities information including Locate_ID in <code>Tag 37</code>.</li>
-<li>OMS will send a <code>New Order</code> meessage by setting <code>Tag 117</code> with the Locate ID with status code that Clear Street provided. To accept OMS need to send Locate_ID,1 for <code>Tag 117</code> and to reject OMS need to send Locate_ID,3 for <code>Tag 117</code>.</li>
-<li>Clear Street responds by sending a <code>Execution Report</code> message with status update such as accepted/exipred/etc in <code>Tag 39</code></li>
+<li>Clear Street responds by sending an <code>Execution Report</code> message with the located securities information including Locate_ID in <code>Tag 37</code>.</li>
+<li>OMS will send a <code>New Order</code> message by setting <code>Tag 117</code> with the Locate_ID with status code that Clear Street provided. To accept OMS need to send Locate_ID,1 for <code>Tag 117</code> and to reject OMS need to send Locate_ID,3 for <code>Tag 117</code>.</li>
+<li>Clear Street responds by sending an <code>Execution Report</code> message with status update such as accepted/expired/etc in <code>Tag 39</code></li>
 </ol>
 <h1 id='message-list'>Message List</h1>
 <table><thead>
@@ -439,7 +441,7 @@ EndTime=22:00:00
 <tr>
 <td>Quote</td>
 <td>S</td>
-<td>1. Response for quote request. Multiple responses are send depending on the number of quotes requested.</td>
+<td>1. Response for quote request. Multiple responses are sent depending on the number of quotes requested.</td>
 <td>Outgoing</td>
 </tr>
 </tbody></table>

@@ -224,12 +224,6 @@ Clear Street derives the OSI symbol from `55`, `201`, `202` and `541`, and books
 | `AllocNetMoney` | `154` |  | `Decimal` |  | `O` | Net money for the leg |
 | `NoMiscFees` | `136` |  | `Integer` |  | `O` | Repeating group: `137` MiscFeeAmt (`Decimal`), `139` MiscFeeType. See [section 4.4](#4-4-fees-miscfeetype-139). Ignored on Preliminary |
 
-**Commission calculation.** Clear Street converts each leg's commission to an absolute amount:
-
-* `13=3`: `12` is the amount.
-* `13=1`: `12` × `80`.
-* `13=2`: `12` is a ratio (0.001 = 0.1%), so `12` × `6` × `80`.
-
 ### 4.3 Parties (NoPartyIDs, 453)
 
 Clear Street reads two entries from NoPartyIDs (`453`). Entries with other PartyRole values are ignored.

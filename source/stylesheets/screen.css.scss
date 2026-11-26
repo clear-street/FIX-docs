@@ -553,6 +553,40 @@ html, body {
       color: #eee;
     }
   }
+
+  // Mermaid diagrams sit in the text column, not the dark examples column.
+  &>pre.mermaid {
+    float: none;
+    clear: none;
+    width: auto;
+    margin-right: $examples-width;
+    padding: 1em $main-padding;
+    background-color: transparent;
+    color: inherit;
+
+    @extend %left-col;
+  }
+
+  // Inline FIX messages: shown in the text column as a light box, wrapping long lines.
+  &>pre.fix-message {
+    float: none;
+    clear: none;
+    width: auto;
+    margin: 0 calc(#{$examples-width} + #{$main-padding}) 1em $main-padding;
+    padding: 1em;
+    border-radius: 3px;
+    background-color: rgba(0,0,0,0.05);
+    color: inherit;
+    white-space: pre-wrap;
+    word-break: break-all;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .content>pre.fix-message {
+    margin-right: $main-padding;
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////

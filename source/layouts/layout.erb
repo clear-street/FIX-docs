@@ -18,7 +18,14 @@ under the License.
 <%
   if current_page.data.includes
     current_page.data.includes.each do |include|
-      page_content += partial("includes/#{include}")
+      rendered = partial("includes/#{include}")
+      # Render in place of an <!-- include:name --> marker if the page has one; otherwise append.
+      marker = "<!-- include:#{include} -->"
+      if page_content.include?(marker)
+        page_content = page_content.sub(marker) { rendered }
+      else
+        page_content += rendered
+      end
     end
   end
 %>
@@ -52,6 +59,15 @@ under the License.
     <script>
       $(function() { setupCodeCopy(); });
     </script>
+    <% end %>
+    <% if current_page.data.mermaid %>
+      <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: false });
+        await mermaid.run({ querySelector: '.content pre.mermaid' });
+        // Diagrams change the page height, so let the TOC recache heading positions.
+        window.dispatchEvent(new Event('resize'));
+      </script>
     <% end %>
   </head>
 

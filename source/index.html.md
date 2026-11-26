@@ -2,14 +2,14 @@
 title: FIX Trade Specification
 
 
-toc_footers:
-  - [Powered By Slate](https://github.com/slatedocs/slate)
+includes:
+  - fix44_allocation
 
-search: true
+mermaid: true
 ---
 
 # Introduction
-FIX trade specification details the tags and values along with description of values for each trade field for processing incoming trades from OMS clients. Clear Street currently utilizes FIX 4.2 format.
+FIX trade specification details the tags and values along with description of values for each trade field for processing incoming trades from OMS clients. Clear Street currently utilizes FIX 4.2 format. Post-trade allocations use FIX 4.4, see [FIX 4.4 Post-Trade Allocation](#fix-4-4-post-trade-allocation).
 
 # Configuring FIX Session
 
@@ -465,6 +465,9 @@ This trade type is to facilitate trade movement between Clear Street internal ac
 | `OmitSECFee` | `9005` | `F` `T` | `String` | `1` | `O` | True if SEC fees should not be applied |
 | `OmitTAFFee` | `9006` | `F` `T` | `String` | `1` | `O` | True if TAF fees should not be applied |
 
+
+
+<!-- include:fix44_allocation -->
 
 # FIX Outbound (Response) Specification
 
